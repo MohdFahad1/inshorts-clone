@@ -1,0 +1,22 @@
+.banner{
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F44336;
+    color: #FDFFFF;
+    padding: 0 1.5rem;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    margin: 10rem 0;
+}
+
+.banner img{
+    margin: 0 0.5rem;
+}
+
+@media (max-width:995px)
+{
+    .banner{
+        display: none;
+    }
+}
