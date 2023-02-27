@@ -1,0 +1,25 @@
+.footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #323232;
+    color: #F2F2CA;
+}
+
+.footer p {
+    font-size: 20px;
+}
+
+.links{
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1rem 0;
+}
+
+.links .icons{
+    color: #F2F2CA;
+    font-size: 2rem;
+}
+

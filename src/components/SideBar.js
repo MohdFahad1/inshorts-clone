@@ -6,17 +6,25 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-// import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
-// import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import categories from '../data/category';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-export default function SwipeableTemporaryDrawer() {
+export default function SwipeableTemporaryDrawer({ setCategory}) {
+
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+
+
   const [state, setState] = React.useState({
     left: false,
   });
+
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -32,20 +40,20 @@ export default function SwipeableTemporaryDrawer() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 200 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List sx={{padding: 2}}>
-        Categories
+       <ListItem>Categories</ListItem>
       </List>
       <Divider />
       <List>
-        {categories.map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={text} />
+        {categories.map((text) => (
+          <ListItem key={text}>
+            <ListItemButton style={{borderRadius:'10px'}}>
+              <ListItemText primary={text} onClick={()=>setCategory(text)}/>
             </ListItemButton>
           </ListItem>
         ))}
@@ -55,19 +63,17 @@ export default function SwipeableTemporaryDrawer() {
 
   return (
     <div>
-      {['left'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}><MenuIcon /></Button>
+          <Button onClick={toggleDrawer("left", true)}><MenuIcon style={{color: 'black'}}/></Button>
+          <ThemeProvider theme={darkTheme}>
           <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
+            anchor={"left"}
+            open={state["left"]}
+            onClose={toggleDrawer("left", false)}
+            onOpen={toggleDrawer("left", true)}
           >
-            {list(anchor)}
+            {list("left")}
           </SwipeableDrawer>
-        </React.Fragment>
-      ))}
+          </ThemeProvider>
     </div>
   );
 }
