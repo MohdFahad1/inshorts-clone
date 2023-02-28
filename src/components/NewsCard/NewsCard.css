@@ -1,0 +1,36 @@
+.news-card{
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+.news-card img{
+    object-fit: cover;
+    height: 268px;
+    width: 320px;
+    border-radius: 10px;
+}
+
+.news-card p a{
+    text-decoration: none;
+    color: black;
+}
+
+.news-content{
+    padding-left: 1rem;
+}
+
+
+@media (max-width: 900px)
+{
+    .news-card{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .news-card img{
+        height: 100%;
+        width: 100%;
+    }
+}
