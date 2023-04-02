@@ -10,7 +10,9 @@ const NewsCard = ({ newsItem }) => {
 
     return (
         <div className='news-card'>
-            {/* <img src={newsItem.urlToImage ? newsItem.urlToImage : "https://lightwidget.com/wp-content/uploads/local-file-not-found.png"} alt="logo" /> */}
+        <div style={{display:"flex", alignItems:"center"}}>
+            <img src={newsItem.urlToImage ? newsItem.urlToImage : "https://lightwidget.com/wp-content/uploads/local-file-not-found.png"} alt="logo" />
+            </div>
             <div className='news-content'>
                 <h2>{newsItem.title}</h2>
                 <hr style={{width:"80%"}}/>
@@ -18,7 +20,7 @@ const NewsCard = ({ newsItem }) => {
                     ? `${hour - 12}:${date[4].substring(3, 5)} pm`
                     : `${hour}:${date[4].substring(3, 5)} am`}{" "}
                     on {date[2]} {date[1]} {date[3]}, {date[0]}</p>
-                {/* <p>{newsItem.description}</p> */}
+                <p>{newsItem.description}</p>
                 <p>read more at <b><a href={newsItem.url} target="__blank">{newsItem.source.name}</a></b></p>
             </div>
         </div>
